@@ -3,6 +3,9 @@
 # ─────────────────────────────────────────────
 FROM golang:1.23-alpine AS builder
 
+# GOTOOLCHAIN=auto allows Go to use the required toolchain version automatically
+ENV GOTOOLCHAIN=auto
+
 # Set the working directory inside the builder container
 WORKDIR /app
 
