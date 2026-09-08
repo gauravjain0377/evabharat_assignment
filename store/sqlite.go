@@ -204,3 +204,21 @@ func (db *DB) UpdateTicketStatus(ticketID int64, status string) error {
 
 	return nil
 }
+
+// Ping checks if the database connection is alive.
+func (db *DB) Ping() error {
+	return db.conn.Ping()
+}
+
+// GetCounts returns total count of users and tickets.
+func (db *DB) GetCounts() (int, int, error) {
+	var userCount, ticketCount int
+	if err := db.conn.QueryRow("SELECT COUNT(*) FROM users").Scan(&userCount); err != nil {
+		return 0, 0, fmt.Errorf("failed to count users: %w", err)
+	}
+	if err := db.conn.QueryRow("SELECT COUNT(*) FROM tickets").Scan(&ticketCount); err != nil {
+		return 0, 0, fmt.Errorf("failed to count tickets: %w", err)
+	}
+	return userCount, ticketCount, nil
+}
+

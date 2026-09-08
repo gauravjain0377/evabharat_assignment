@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 680" width="100%" height="100%" style="background:#090d16; font-family:'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, sans-serif;">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c111d"/>
+      <stop offset="100%" stop-color="#070a12"/>
+    </linearGradient>
+    <linearGradient id="blueCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="indigoCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#171438"/>
+    </linearGradient>
+    <linearGradient id="tealCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b"/>
+      <stop offset="100%" stop-color="#022c22"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="50%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <!-- Drop Shadow -->
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+    <!-- Arrow Marker -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#818cf8"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#34d399"/>
+    </marker>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1000" height="680" fill="url(#bgGrad)"/>
+  
+  <!-- Grid Subtle Pattern -->
+  <g opacity="0.05" stroke="#94a3b8" stroke-width="1">
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40"/>
+    </pattern>
+    <rect width="1000" height="680" fill="url(#grid)"/>
+  </g>
+
+  <!-- Title Header -->
+  <g transform="translate(60, 45)">
+    <rect x="0" y="-8" width="6" height="42" rx="3" fill="url(#accentLine)"/>
+    <text x="22" y="16" fill="#f8fafc" font-size="22" font-weight="700" letter-spacing="-0.5">Ticket System Architecture &amp; Lifecycle</text>
+    <text x="22" y="36" fill="#94a3b8" font-size="13">Modular RESTful Service built with Go (Gorilla Mux), JWT Authentication &amp; Pure-Go SQLite</text>
+  </g>
+
+  <!-- ==================== LAYER 1: CLIENTS ==================== -->
+  <g transform="translate(60, 110)">
+    <rect width="880" height="90" rx="12" fill="#111827" stroke="#1f2937" stroke-width="1.5" filter="url(#cardShadow)"/>
+    <rect x="0" y="0" width="880" height="26" rx="12" fill="#1f2937" fill-opacity="0.4"/>
+    <text x="20" y="18" fill="#a5b4fc" font-size="11" font-weight="700" letter-spacing="1">LAYER 1: CLIENTS &amp; CONSUMERS</text>
+
+    <!-- Web Frontend Box -->
+    <g transform="translate(40, 36)">
+      <rect width="360" height="42" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <circle cx="24" cy="21" r="6" fill="#38bdf8"/>
+      <text x="40" y="25" fill="#f1f5f9" font-size="13" font-weight="600">Web App (Single Page Application)</text>
+      <text x="285" y="25" fill="#64748b" font-size="11">HTML / Tailwind</text>
+    </g>
+
+    <!-- API / curl Box -->
+    <g transform="translate(460, 36)">
+      <rect width="380" height="42" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <circle cx="24" cy="21" r="6" fill="#818cf8"/>
+      <text x="40" y="25" fill="#f1f5f9" font-size="13" font-weight="600">REST Clients &amp; Probers</text>
+      <text x="220" y="25" fill="#64748b" font-size="11">curl / Postman / Health Checker</text>
+    </g>
+  </g>
+
+  <!-- Connectors from Layer 1 to Layer 2 -->
+  <path d="M 280 200 L 280 232" stroke="#818cf8" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arrow)"/>
+  <path d="M 680 200 L 680 232" stroke="#818cf8" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arrow)"/>
+  <rect x="420" y="206" width="160" height="22" rx="6" fill="#1e1b4b" stroke="#4338ca" stroke-width="1"/>
+  <text x="500" y="221" fill="#c7d2fe" font-size="11" font-weight="600" text-anchor="middle">HTTP Requests (JSON / Auth)</text>
+
+  <!-- ==================== LAYER 2: ROUTER & MIDDLEWARE ==================== -->
+  <g transform="translate(60, 240)">
+    <rect width="880" height="85" rx="12" fill="#111827" stroke="#1f2937" stroke-width="1.5" filter="url(#cardShadow)"/>
+    <rect x="0" y="0" width="880" height="26" rx="12" fill="#1f2937" fill-opacity="0.4"/>
+    <text x="20" y="18" fill="#a5b4fc" font-size="11" font-weight="700" letter-spacing="1">LAYER 2: ROUTER &amp; MIDDLEWARE (main.go)</text>
+
+    <!-- CORS Middleware -->
+    <g transform="translate(30, 35)">
+      <rect width="250" height="38" rx="6" fill="#1e1b4b" stroke="#4338ca" stroke-width="1"/>
+      <text x="18" y="23" fill="#e0e7ff" font-size="12" font-weight="600">corsMiddleware</text>
+      <text x="135" y="23" fill="#818cf8" font-size="10">Origin, Methods, Headers</text>
+    </g>
+
+    <!-- Gorilla Mux -->
+    <g transform="translate(300, 35)">
+      <rect width="260" height="38" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="1"/>
+      <text x="18" y="23" fill="#e0e7ff" font-size="12" font-weight="600">gorilla/mux Router</text>
+      <text x="145" y="23" fill="#93c5fd" font-size="10">Path &amp; Method Match</text>
+    </g>
+
+    <!-- Auth Middleware -->
+    <g transform="translate(580, 35)">
+      <rect width="270" height="38" rx="6" fill="#311042" stroke="#a21caf" stroke-width="1"/>
+      <text x="18" y="23" fill="#fae8ff" font-size="12" font-weight="600">AuthMiddleware</text>
+      <text x="125" y="23" fill="#f0abfc" font-size="10">JWT Bearer Verification</text>
+    </g>
+  </g>
+
+  <!-- Connectors from Layer 2 to Layer 3 -->
+  <path d="M 200 325 L 200 365" stroke="#818cf8" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 500 325 L 500 365" stroke="#818cf8" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 750 325 L 750 365" stroke="#818cf8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ==================== LAYER 3: CONTROLLERS & HANDLERS ==================== -->
+  <g transform="translate(60, 370)">
+    <rect width="880" height="135" rx="12" fill="#111827" stroke="#1f2937" stroke-width="1.5" filter="url(#cardShadow)"/>
+    <rect x="0" y="0" width="880" height="26" rx="12" fill="#1f2937" fill-opacity="0.4"/>
+    <text x="20" y="18" fill="#a5b4fc" font-size="11" font-weight="700" letter-spacing="1">LAYER 3: HANDLERS &amp; BUSINESS LOGIC (handlers/)</text>
+
+    <!-- HealthHandler Box -->
+    <g transform="translate(25, 36)">
+      <rect width="260" height="85" rx="8" fill="#064e3b" fill-opacity="0.4" stroke="#059669" stroke-width="1.2"/>
+      <text x="16" y="22" fill="#6ee7b7" font-size="13" font-weight="700">HealthHandler</text>
+      <rect x="180" y="8" width="68" height="18" rx="4" fill="#047857"/>
+      <text x="214" y="21" fill="#ecfdf5" font-size="9" font-weight="600" text-anchor="middle">NEW &bull; UI/JSON</text>
+      <text x="16" y="44" fill="#a7f3d0" font-size="11">&bull; GET /health (Dashboard UI / JSON)</text>
+      <text x="16" y="60" fill="#a7f3d0" font-size="11">&bull; GET /health/json (Live Telemetry)</text>
+      <text x="16" y="76" fill="#6ee7b7" font-size="10" font-style="italic">Uptime, DB Ping Latency, Memory, GC</text>
+    </g>
+
+    <!-- AuthHandler Box -->
+    <g transform="translate(305, 36)">
+      <rect width="270" height="85" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.2"/>
+      <text x="16" y="22" fill="#f8fafc" font-size="13" font-weight="700">AuthHandler</text>
+      <text x="16" y="44" fill="#cbd5e1" font-size="11">&bull; POST /auth/register (Create user)</text>
+      <text x="16" y="60" fill="#cbd5e1" font-size="11">&bull; POST /auth/login (Issue JWT 24h)</text>
+      <text x="16" y="76" fill="#94a3b8" font-size="10" font-style="italic">bcrypt Hash Verification, Duplicate Check</text>
+    </g>
+
+    <!-- TicketHandler Box -->
+    <g transform="translate(595, 36)">
+      <rect width="260" height="85" rx="8" fill="#1e1b4b" fill-opacity="0.6" stroke="#6366f1" stroke-width="1.2"/>
+      <text x="16" y="22" fill="#c7d2fe" font-size="13" font-weight="700">TicketHandler</text>
+      <text x="16" y="44" fill="#e0e7ff" font-size="11">&bull; POST /tickets (Create ticket)</text>
+      <text x="16" y="60" fill="#e0e7ff" font-size="11">&bull; GET /tickets (User ticket list)</text>
+      <text x="16" y="76" fill="#a5b4fc" font-size="11">&bull; PATCH /tickets/{id}/status (open &rarr; closed)</text>
+    </g>
+  </g>
+
+  <!-- Connectors from Layer 3 to Layer 4 -->
+  <path d="M 155 505 L 155 538 L 450 538 L 450 545" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <path d="M 440 505 L 440 545" stroke="#818cf8" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 725 505 L 725 538 L 550 538 L 550 545" stroke="#818cf8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ==================== LAYER 4: DATA & STORAGE ==================== -->
+  <g transform="translate(60, 545)">
+    <rect width="880" height="100" rx="12" fill="#111827" stroke="#1f2937" stroke-width="1.5" filter="url(#cardShadow)"/>
+    <rect x="0" y="0" width="880" height="26" rx="12" fill="#1f2937" fill-opacity="0.4"/>
+    <text x="20" y="18" fill="#a5b4fc" font-size="11" font-weight="700" letter-spacing="1">LAYER 4: PERSISTENCE &amp; DATABASE (store/sqlite.go)</text>
+
+    <!-- SQLite Driver Box -->
+    <g transform="translate(30, 36)">
+      <rect width="390" height="50" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="18" y="24" fill="#f8fafc" font-size="12" font-weight="600">modernc.org/sqlite (Pure Go Driver)</text>
+      <text x="18" y="42" fill="#94a3b8" font-size="11">CGO-Free &bull; Cross-platform &bull; Fast Embedded Engine</text>
+    </g>
+
+    <!-- Database File & Tables -->
+    <g transform="translate(450, 36)">
+      <rect width="400" height="50" rx="8" fill="#0f172a" stroke="#22d3ee" stroke-width="1"/>
+      <text x="18" y="24" fill="#e0f2fe" font-size="12" font-weight="600">SQLite Database (tickets.db)</text>
+      <text x="18" y="42" fill="#38bdf8" font-size="11">users (id, email, hash) &bull; tickets (id, title, status, created_by)</text>
+    </g>
+  </g>
+
+</svg>

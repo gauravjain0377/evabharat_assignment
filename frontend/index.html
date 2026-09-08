@@ -58,13 +58,26 @@
             </form>
 
             <div id="auth-error" class="text-red-400 text-xs text-center mt-3"></div>
+
+            <div class="mt-6 text-center">
+                <a href="/health" class="inline-flex items-center gap-2 text-xs text-gray-400 hover:text-gray-200 transition py-1 px-3 rounded-full border border-gray-800 bg-gray-900/70 hover:border-gray-700">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block animate-pulse"></span>
+                    <span>System Status: Operational</span>
+                </a>
+            </div>
         </div>
     </div>
 
     <!-- DASHBOARD -->
     <div id="dashboard-screen" class="hidden">
         <nav class="flex items-center justify-between px-6 py-3 bg-gray-900 border-b border-gray-800 sticky top-0 z-50">
-            <span class="font-semibold">🎫 Ticket System</span>
+            <div class="flex items-center gap-3">
+                <span class="font-semibold">🎫 Ticket System</span>
+                <a href="/health" class="inline-flex items-center gap-1.5 text-xs text-gray-400 hover:text-gray-200 transition py-1 px-2.5 rounded-lg border border-gray-800 bg-gray-950/60 hover:border-gray-700">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block animate-pulse"></span>
+                    <span>Live Status</span>
+                </a>
+            </div>
             <div class="flex items-center gap-3">
                 <span id="nav-username" class="text-sm text-gray-400"></span>
                 <button id="logout-btn" class="text-sm text-gray-400 hover:text-white transition">Logout</button>

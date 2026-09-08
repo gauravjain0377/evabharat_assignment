@@ -29,6 +29,7 @@ func main() {
 	// Create handler instances with their dependencies
 	authHandler := handlers.NewAuthHandler(db, cfg.JWTSecret)
 	ticketHandler := handlers.NewTicketHandler(db)
+	healthHandler := handlers.NewHealthHandler(db)
 
 	// Set up the router
 	router := mux.NewRouter()
@@ -37,7 +38,8 @@ func main() {
 	router.Use(corsMiddleware)
 
 	// Public routes (no authentication required)
-	router.HandleFunc("/health", handlers.HealthCheck).Methods("GET")
+	router.Handle("/health", healthHandler).Methods("GET")
+	router.Handle("/health/json", healthHandler).Methods("GET")
 	router.HandleFunc("/auth/register", authHandler.Register).Methods("POST")
 	router.HandleFunc("/auth/login", authHandler.Login).Methods("POST")
 
