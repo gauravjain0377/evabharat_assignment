@@ -4,6 +4,7 @@ go 1.26.3
 
 require (
 	github.com/golang-jwt/jwt/v5 v5.3.1
+	github.com/gorilla/mux v1.8.1
 	golang.org/x/crypto v0.56.0
 	modernc.org/sqlite v1.58.0
 )
