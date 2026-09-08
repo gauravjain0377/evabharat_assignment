@@ -1,10 +1,7 @@
 # ─────────────────────────────────────────────
 # Stage 1: Build the Go binary
 # ─────────────────────────────────────────────
-FROM golang:1.23-alpine AS builder
-
-# GOTOOLCHAIN=auto allows Go to use the required toolchain version automatically
-ENV GOTOOLCHAIN=auto
+FROM golang:1.26-alpine AS builder
 
 # Set the working directory inside the builder container
 WORKDIR /app

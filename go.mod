@@ -1,11 +1,11 @@
 module github.com/gauravjain0377/ticket-system
 
-go 1.23
+go 1.26.0
 
 require (
 	github.com/golang-jwt/jwt/v5 v5.3.1
 	github.com/gorilla/mux v1.8.1
-	golang.org/x/crypto v0.56.0
+	golang.org/x/crypto v0.26.0
 	modernc.org/sqlite v1.58.0
 )
 
