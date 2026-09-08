@@ -2,6 +2,10 @@
 
 A REST API backend for a ticket management system built with **Go**. Users can register, login, create tickets, view their own tickets, and update ticket statuses.
 
+## Screenshots
+
+![Sign In Page](assets/ticket.png)
+
 ## Tech Stack
 
 - **Language:** Go
