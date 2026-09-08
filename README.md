@@ -16,7 +16,7 @@ A production-ready REST API backend and interactive management dashboard for sup
 
 ### Architectural Overview
 
-![System Architecture](assets/architecture.svg)
+![System Architecture](assets/architecture.png)
 
 The project adheres to a clean, decoupled 4-layer architecture ensuring high performance, zero external C-dependencies, and strict separation of concerns:
 
